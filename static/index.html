@@ -1,0 +1,56 @@
+<html>
+<head>
+	<script type='text/javascript'>
+		anchorclick = function(dir){
+			console.log("Anchor click");
+			postMoveDirection(dir)
+			return false;
+		}
+
+		postMoveDirection = function(dir){
+			console.log('Derp')
+			var request = new XMLHttpRequest();
+			request.open('POST', '/drive');
+			request.setRequestHeader('Content-Type', 'text');
+
+			request.onload = function(){
+				if(this.status >= 200 && this.status < 400){
+					resp = this.response;
+					console.log("Sent POST request, got back  ", resp);
+				} else {
+
+					console.log("Error sending POST request: ", this.response);
+				}
+
+			}
+			request.send(dir)
+			return false //Cancels event
+		}
+	</script>
+</head>
+
+<body>
+	<h1 align=center >Project Battleaxe Controls</h1>
+
+	<br>
+
+	<table>
+		<tr>
+			<td></td>
+			<td><a href="#" onclick="postMoveDirection('forward')"><img src='/static/forward.png'/></a></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href="#" onclick="postMoveDirection('left')"><img src='/static/left.png'/></a></td>
+			<td align="center"><font size="18"><a href="#" onclick="postMoveDirection('notvalidyet')"><b>A</b></a></font></td>
+			<td><a href="#" onclick="postMoveDirection('right')"><img src='/static/right.png'/></a></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="#" onclick="postMoveDirection('reverse')"><img src='/static/reverse.png'/></a></td>
+			<td></td>
+		</tr>
+	</table>
+
+</body>
+</html>
