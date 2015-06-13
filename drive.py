@@ -1,5 +1,6 @@
 import errors
 import web
+import robot as r
 
 class drive:
 	def GET(self):
@@ -15,6 +16,16 @@ class drive:
 			raise errors.BadRequestError
 
 		#Set robot direction here...
+                if direction == 'forward':
+                    r.forward(1)
+                if direction == 'reverse':
+                    r.reverse(1)
+                if direction == 'left':
+                    r.left(0.5)
+                if direction == 'right':
+                    r.right(0.5)
+                if direction == 'stop':
+                    r.stop()
 
 
 		return "Updated direction"
