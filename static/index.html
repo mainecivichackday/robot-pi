@@ -1,12 +1,6 @@
 <html>
 <head>
 	<script type='text/javascript'>
-		anchorclick = function(dir){
-			console.log("Anchor click");
-			postMoveDirection(dir)
-			return false;
-		}
-
 		postMoveDirection = function(dir){
 			console.log('Derp')
 			var request = new XMLHttpRequest();
@@ -42,7 +36,7 @@
 		</tr>
 		<tr>
 			<td><a href="#" onclick="postMoveDirection('left')"><img src='/static/left.png'/></a></td>
-			<td align="center"><font size="18"><a href="#" onclick="postMoveDirection('notvalidyet')"><b>A</b></a></font></td>
+			<td align="center"><font size="18"><a href="#" onclick="postMoveDirection('auto')"><b>A</b></a></font></td>
 			<td><a href="#" onclick="postMoveDirection('right')"><img src='/static/right.png'/></a></td>
 		</tr>
 		<tr>
@@ -51,6 +45,7 @@
 			<td></td>
 		</tr>
 	</table>
+	<a href="#" onclick="postMoveDirection('stop')">Stop</a>
 
 </body>
 </html>
