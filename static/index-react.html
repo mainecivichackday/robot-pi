@@ -1,0 +1,28 @@
+<html>
+<head>
+    <script src="/static/lib/react.js"></script>
+    <script src="/static/lib/JSXTransformer.js"></script>
+    <script src="/static/lib/tabs.react.js" type='text/jsx'></script>
+    <script src="/static/index-react.js" type='text/jsx'></script>
+</head>
+<body>
+	<div id="content">
+
+	</div>
+	<script type='text/jsx'>
+	console.log("ReactTabs... ", ReactTabs)
+	React.render(
+	  <div>
+	  	Hello, world!
+	  	<ReactTabs useState={true}>
+	  		<DrivePanel tabName='Drive' />
+	  		<ScriptManager tabName='Scripts' />
+	  		<div tabName='Sensors'>Nothing here yet either.</div>
+	  	</ReactTabs>
+	  </div>,
+	  document.getElementById('content')
+	);
+	</script>
+</body>
+
+</html>

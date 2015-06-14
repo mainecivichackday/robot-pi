@@ -3,6 +3,7 @@ import errors
 
 from os import listdir
 from os.path import isfile, join
+import json
 
 user_scripts_path = './user_scripts/'
 
@@ -13,7 +14,8 @@ class scripts:
 		#If no script_id is present, return a list of scripts
 		if script_name is None or len(script_name) == 0:
 			scripts = [f for f in listdir(user_scripts_path) if isfile(join(user_scripts_path, f))]
-			return "This is where I return a list of scripts: %s"%scripts
+			web.header('Content-Type', 'application/json')
+			return json.dumps(scripts)
 		
 		#Return content of script
 		script_path = join(user_scripts_path, script_name)
