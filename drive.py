@@ -5,11 +5,11 @@ try:
 except ImportError:
 	import controller.robot_dummy as r
 
+#drive class  accepts a POST command with the direction of travel
 class drive:
 	def GET(self):
-		print "VROOOOM!"
 		raise errors.NotSupportedError
-		return "This should return a 405 - Not Supported Error"
+
 	
 	#POST excepts a single command in plain teext.
 	#Current supported commands: forward', 'reverse', 'left', 'right', 'auto', 'stop'
@@ -29,6 +29,4 @@ class drive:
                     r.right(0.5)
                 if direction == 'stop':
                     r.stop()
-
-
 		return "Updated direction"

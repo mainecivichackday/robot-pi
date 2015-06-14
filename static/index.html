@@ -2,11 +2,30 @@
 <head>
 	<script type='text/javascript' src='/static/robot.js'></script>
 	<script type='text/javascript'>
+		var getScriptInfoFromElements = function(){
+
+			var filenameElem = document.querySelectorAll('#filename-input')[0]
+			var sourceElem = document.querySelectorAll('#source-input')[0]
+
+			console.log('Filename elem: ', filenameElem.value)
+			console.log('Source elem: ', sourceElem.value)
+
+			//TODO: Validate filename
+
+			Robot.postScript(filenameElem.value, sourceElem.value)
+			return false
+		}
+
+		var executeScript = function(){
+
+			var filenameElem = document.querySelectorAll('#filename-script-runner')[0];
+			Robot.executeScript(filenameElem.value)
+		}
 	</script>
 </head>
 
 <body>
-	<h1 align=center >Robot Web Controls</h1>
+	<h1 align=center>Robot Web Controls</h1>
 
 	<br>
 
@@ -28,6 +47,26 @@
 		</tr>
 	</table>
 	<a href="#" onclick="postMoveDirection('stop')">Stop</a>
+
+	<div>
+
+		Filename: <input type='text' id='filename-input'>
+		Source:
+			<textarea rows="40" cols="80" id='source-input'>
+import robot as r
+import time
+r.forward(1)
+r.reverse()
+time.sleep(1)
+r.stop()
+			</textarea>
+			<input type="submit" value="Save" onclick="getScriptInfoFromElements()" />
+
+	</div>
+
+	<div>
+		<input type='text' id='filename-script-runner'> <button onclick="executeScript()">run</button>
+	</div>
 	<footer>A 2015 Maine Civic Hack Day Project.  <a href="https://github.com/mainecivichackday/robot-pi">Github Repo</a></footer>
 </body>
 </html>

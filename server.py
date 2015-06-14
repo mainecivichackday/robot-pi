@@ -1,9 +1,11 @@
 import web
 from drive import drive
-
+from scripts import scripts, script_runner
 urls = (
     '/', 'index',
     '/drive', 'drive',
+    '/scripts/run', 'script_runner',
+    '/scripts/(.*)', 'scripts',
 )
 app = web.application(urls, globals())
 
