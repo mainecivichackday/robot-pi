@@ -1,9 +1,9 @@
 import errors
 import web
 try:
-	import robot as r
+	import controller.robot as r
 except ImportError:
-	import robot_dummy as r
+	import controller.robot_dummy as r
 
 class drive:
 	def GET(self):
