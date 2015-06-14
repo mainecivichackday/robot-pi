@@ -1,6 +1,9 @@
 import errors
 import web
-import robot as r
+try:
+	import robot as r
+except ImportError:
+	import robot_dummy as r
 
 class drive:
 	def GET(self):
