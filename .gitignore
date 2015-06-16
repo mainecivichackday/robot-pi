@@ -55,3 +55,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+
+#node.js / io.js stuff
+node_modules/

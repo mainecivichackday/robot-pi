@@ -1,0 +1,9 @@
+Building the front-end requires node.js / io.js. 
+
+Install project-specific dependencies:
+npm install
+
+
+To convert src into bundle.js, while in robot-pi/frontend:
+'npm start' to create a development bundle.js
+'npm build' to create a minified production ready version
