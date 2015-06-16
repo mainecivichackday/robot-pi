@@ -1,6 +1,19 @@
 from drv8835 import motors,MAX_SPEED
 import time
 
+
+def move(direction):    #One of ['forward', 'reverse', 'left', 'right', 'stop']
+    if direction == 'forward':
+        r.forward(1)
+    if direction == 'reverse':
+        r.reverse(1)
+    if direction == 'left':
+        r.left(0.5)
+    if direction == 'right':
+        r.right(0.5)
+    if direction == 'stop':
+        r.stop()
+
 def forward(t=0):
     motors.setSpeeds(0, 0)
     motors.motor1.setSpeed(-MAX_SPEED)
