@@ -2,7 +2,7 @@
   "name": "robot-pi-frontend",
   "version": "0.0.1",
   "description": "robot-pi-frontend",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "jsxc --watch src/ build/",
     "build": "jsxc src/ build/"
